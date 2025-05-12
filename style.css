@@ -58,9 +58,47 @@ nav a.title {
     border: none;
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.menu::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.menu a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #ebc1d7;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #ebc1d79e;
+    color: #444;
+    transform: translateY(-0.5px);
+    box-shadow: 0 2px 5px rgba(235, 193, 215, 0.3);
+}
+
+
 section {
     margin-top: 40px;
     padding: 20px;
+    scroll-margin-top: 60px; /* nav 높이 + 여유 공간 */
 }
 
 .emoji-list { 
@@ -198,14 +236,13 @@ section {
 
 .footer-content {
     width: 100%;
-    max-width: none;
     margin: 0;
-    padding: 40px 20px;
+    padding: 40px;
     background-color: #f8f8f8;
 }
 
 .footer-content h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1;
     font-weight: 600;
     margin-bottom: 0;
@@ -213,7 +250,7 @@ section {
 }
 
 .footer-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 0.2rem;
 }
 
@@ -225,5 +262,6 @@ section {
 .footer-content li {
     margin-bottom: 0.5rem;
     line-height: 1;
+    font-size: 0.9rem;
 }
   
