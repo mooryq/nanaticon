@@ -3,5 +3,13 @@
   <url>
     <loc>https://nanaticon.vercel.app/</loc>
     <priority>1.0</priority>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nanaticon.vercel.app/special.html</loc>
+    <priority>1.0</priority>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>daily</changefreq>
   </url>
 </urlset>

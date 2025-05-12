@@ -3,7 +3,7 @@ html { scroll-behavior: smooth; }
 body { 
     font-family: sans-serif; 
     color: #444;
-    line-height: 1.6; 
+    line-height: 1.2; 
     margin: 0;
     max-width: 100%;
     overflow-x: hidden;
@@ -101,14 +101,19 @@ section {
     scroll-margin-top: 60px; /* nav 높이 + 여유 공간 */
 }
 
-.emoji-list { 
+.emoji-list, .special-list { 
     display: flex; 
     flex-wrap: wrap; 
     gap: 10px;
     justify-content: center;
 }
 
-.emoji {
+
+.emoji-list, .special-list { 
+    gap: 15px;
+}
+
+.emoji, .special {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -117,7 +122,12 @@ section {
     transition: transform 0.2s, background-color 0.2s;
 }
 
-.emoji:hover {
+.special {
+    border: 1px solid #ebc1d7;
+    padding: 10px 18px;
+}
+
+.emoji:hover, .special:hover {
     background: #f0f0f0;
     transform: scale(1.05);
 }
