@@ -1,12 +1,12 @@
 // DOM이 로드된 후 실행
 document.addEventListener('DOMContentLoaded', () => {
-    // 이모지 클릭 이벤트 리스너 추가
-    document.querySelectorAll('.emoji').forEach(emoji => {
-        emoji.addEventListener('click', async () => {
-            const emojiText = emoji.textContent.trim();
+    // 이모지와 특수문자 클릭 이벤트 리스너 추가
+    document.querySelectorAll('.emoji, .special').forEach(element => {
+        element.addEventListener('click', async () => {
+            const text = element.textContent.trim();
             try {
-                await copyToClipboard(emojiText);
-                showToast(emojiText);
+                await copyToClipboard(text);
+                showToast(text);
             } catch (err) {
                 alert('복사 기능이 지원되지 않는 브라우저입니다.');
                 console.error('복사 실패:', err);
