@@ -7,7 +7,25 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
+    <loc>https://nanaticon.vercel.app/popular.html</loc>
+    <priority>1.0</priority>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
     <loc>https://nanaticon.vercel.app/special.html</loc>
+    <priority>1.0</priority>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nanaticon.vercel.app/star.html</loc>
+    <priority>1.0</priority>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nanaticon.vercel.app/ribbon.html</loc>
     <priority>1.0</priority>
     <lastmod>2025-05-13</lastmod>
     <changefreq>daily</changefreq>
