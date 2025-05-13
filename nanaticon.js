@@ -13,6 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const menu = document.querySelector('.menu');
+
+    function checkScrollState() {
+        const isScrollable = menu.scrollWidth > menu.clientWidth;
+        const isAtEnd = Math.abs((menu.scrollLeft + menu.clientWidth) - menu.scrollWidth) < 1;
+
+        // 스크롤이 필요없거나 끝에 도달했을 때 화살표 숨김
+        if (!isScrollable || isAtEnd) {
+            menu.classList.add('hide-arrow');
+        } else {
+            menu.classList.remove('hide-arrow');
+        }
+    }
+
+    // 스크롤 이벤트 리스너
+    menu.addEventListener('scroll', checkScrollState);
+
+    // 리사이즈 이벤트 리스너
+    window.addEventListener('resize', checkScrollState);
+
+    // 초기 상태 체크
+    checkScrollState();
 });
 
 async function copyToClipboard(text) {
