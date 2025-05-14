@@ -151,25 +151,25 @@ section {
     scroll-margin-top: 60px; /* nav 높이 + 여유 공간 */
 }
 
-#heart, #star, #ribbon {
-    margin-top: 0;
+#heart, #star, #ribbon, #symbol {
+    margin-top: 0;  
     max-width: 40%;
     font-size: 14px;
 }
 
 @media screen and (max-width: 1600px) {
-    #heart, #star, #ribbon {
+    #heart, #star, #ribbon, #symbol {
         max-width: 60%;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    #heart, #star, #ribbon {
+    #heart, #star, #ribbon, #symbol {
         max-width: 90%;
     }
 }
 @media screen and (max-width: 768px) {
-    #heart, #star, #ribbon {
+    #heart, #star, #ribbon, #symbol  {
         max-width: 100%;
         font-size: 13px;
     }
@@ -179,11 +179,21 @@ section {
     }
 }
 
-.emoji-list, .special-list { 
+.emoji-list, .special-list, .symbol-list { 
     display: flex; 
     flex-wrap: wrap; 
+    margin: 20px auto;
     gap: 15px;
     justify-content: center;
+}
+
+
+.symbol {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fff;
 }
 
 .emoji, .special {
