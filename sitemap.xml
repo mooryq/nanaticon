@@ -13,12 +13,6 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://nanaticon.vercel.app/sub/special.html</loc>
-    <priority>1.0</priority>
-    <lastmod>2025-05-19</lastmod>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
     <loc>https://nanaticon.vercel.app/sub/star.html</loc>
     <priority>1.0</priority>
     <lastmod>2025-05-19</lastmod>
