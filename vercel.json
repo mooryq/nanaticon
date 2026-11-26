@@ -8,8 +8,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/special",
+      "destination": "/symbol",
+      "permanent": true
+    },
+    {
       "source": "/sub/special.html",
       "destination": "/symbol",
+      "permanent": true
+    },
+    {
+      "source": "/sub/popular",
+      "destination": "/symbol/pretty",
       "permanent": true
     },
     {
@@ -18,8 +28,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/heart",
+      "destination": "/symbol/heart",
+      "permanent": true
+    },
+    {
       "source": "/sub/heart.html",
       "destination": "/symbol/heart",
+      "permanent": true
+    },
+    {
+      "source": "/sub/star",
+      "destination": "/symbol/star",
       "permanent": true
     },
     {
@@ -28,8 +48,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/ribbon",
+      "destination": "/symbol/ribbon",
+      "permanent": true
+    },
+    {
       "source": "/sub/ribbon.html",
       "destination": "/symbol/ribbon",
+      "permanent": true
+    },
+    {
+      "source": "/sub/flower",
+      "destination": "/symbol/flower",
       "permanent": true
     },
     {
@@ -38,8 +68,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/arrow",
+      "destination": "/symbol/arrow",
+      "permanent": true
+    },
+    {
       "source": "/sub/arrow.html",
       "destination": "/symbol/arrow",
+      "permanent": true
+    },
+    {
+      "source": "/sub/number",
+      "destination": "/symbol/number",
       "permanent": true
     },
     {
@@ -48,8 +88,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/divider",
+      "destination": "/symbol/divider",
+      "permanent": true
+    },
+    {
       "source": "/sub/divider.html",
       "destination": "/symbol/divider",
+      "permanent": true
+    },
+    {
+      "source": "/sub/pink",
+      "destination": "/mood/pink",
       "permanent": true
     },
     {
@@ -58,8 +108,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/purple",
+      "destination": "/mood/purple",
+      "permanent": true
+    },
+    {
       "source": "/sub/purple.html",
       "destination": "/mood/purple",
+      "permanent": true
+    },
+    {
+      "source": "/sub/spring",
+      "destination": "/mood/spring",
       "permanent": true
     },
     {
@@ -68,8 +128,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/summer",
+      "destination": "/mood/summer",
+      "permanent": true
+    },
+    {
       "source": "/sub/summer.html",
       "destination": "/mood/summer",
+      "permanent": true
+    },
+    {
+      "source": "/sub/rain",
+      "destination": "/mood/rain",
       "permanent": true
     },
     {
@@ -78,8 +148,18 @@
       "permanent": true
     },
     {
+      "source": "/sub/space",
+      "destination": "/mood/space",
+      "permanent": true
+    },
+    {
       "source": "/sub/space.html",
       "destination": "/mood/space",
+      "permanent": true
+    },
+    {
+      "source": "/sub/animal",
+      "destination": "/emoticon",
       "permanent": true
     },
     {
@@ -88,13 +168,28 @@
       "permanent": true
     },
     {
+      "source": "/sub/font",
+      "destination": "/tools/font",
+      "permanent": true
+    },
+    {
       "source": "/sub/font.html",
       "destination": "/tools/font",
       "permanent": true
     },
     {
+      "source": "/sub/nickname",
+      "destination": "/tools/nickname",
+      "permanent": true
+    },
+    {
       "source": "/sub/nickname.html",
       "destination": "/tools/nickname",
+      "permanent": true
+    },
+    {
+      "source": "/sub/bio",
+      "destination": "/tools/bio",
       "permanent": true
     },
     {

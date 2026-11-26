@@ -383,7 +383,11 @@ write('manifest.json', JSON.stringify({ name: `${site.name} 특수문자 이모�
 write('vercel.json', JSON.stringify({
   cleanUrls: true,
   trailingSlash: false,
-  redirects: Object.entries(redirects).map(([source, destination]) => ({ source, destination, permanent: true })),
+  // cleanUrls 가 .html 을 먼저 떼므로 확장자 없는 주소도 함께 등록
+  redirects: Object.entries(redirects).flatMap(([source, destination]) => [
+    ...(source.endsWith('.html') ? [{ source: source.replace(/(\/index)?\.html$/, '') || '/', destination }] : []),
+    { source, destination },
+  ]).filter((r) => r.source !== r.destination).map((r) => ({ ...r, permanent: true })),
   headers: [
     { source: '/assets/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
     { source: '/assets/search.json', headers: [{ key: 'X-Robots-Tag', value: 'noindex' }] },
