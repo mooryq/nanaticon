@@ -93,14 +93,29 @@
   });
 
   // ── 하단 독: 보관함 / 이어붙이기 ──
+  function ico(d) { return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>'; }
+  var I = {
+    home: ico('<path d="M3.5 10.5 12 4l8.5 6.5"/><path d="M5.5 9v10.5h13V9"/><path d="M10 19.5v-5h4v5"/>'),
+    menu: ico('<rect x="4" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"/>'),
+    search: ico('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
+    heart: ico('<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/>'),
+    plus: ico('<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/>'),
+    check: ico('<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/>')
+  };
   var dock = document.createElement('div');
   dock.className = 'dock';
   dock.innerHTML =
     '<div class="cmp" hidden><div class="cmp-text" aria-live="polite"></div>' +
     '<div class="cmp-btns"><button type="button" class="cmp-back" aria-label="마지막 글자 지우기">⌫</button><button type="button" class="cmp-clear">비우기</button><button type="button" class="cmp-copy">복사하기</button></div>' +
     '<p class="cmp-help">이모티콘을 누르면 여기에 이어붙여져요</p></div>' +
-    '<div class="dock-bar"><button type="button" class="dock-box">♡ 보관함 <span class="badge"></span></button>' +
-    '<button type="button" class="dock-cmp" aria-pressed="false">✚ 이어붙이기</button></div>';
+    '<button type="button" class="totop" aria-label="맨 위로" hidden>↑</button>' +
+    '<nav class="tabbar" aria-label="하단 메뉴">' +
+    '<a href="/" class="tab' + (document.body.dataset.page === 'home' ? ' on" aria-current="page' : '') + '"><span class="tab-i">' + I.home + '</span>홈</a>' +
+    '<button type="button" class="tab menu-toggle" aria-controls="drawer" aria-expanded="false"><span class="tab-i">' + I.menu + '</span>메뉴</button>' +
+    '<button type="button" class="tab search-open"><span class="tab-i">' + I.search + '</span>검색</button>' +
+    '<button type="button" class="tab dock-box"><span class="tab-i">' + I.heart + '<span class="badge"></span></span>보관함</button>' +
+    '<button type="button" class="tab dock-cmp" aria-pressed="false"><span class="tab-i">' + I.plus + '</span><span class="tab-l">이어붙이기</span></button>' +
+    '</nav>';
   document.body.appendChild(dock);
   var cmp = $('.cmp', dock), cmpText = $('.cmp-text', dock), cmpBtn = $('.dock-cmp', dock);
 
@@ -108,7 +123,8 @@
   function renderCompose() {
     cmp.hidden = !compose.on;
     cmpBtn.setAttribute('aria-pressed', compose.on);
-    cmpBtn.textContent = compose.on ? '✓ 이어붙이기 끄기' : '✚ 이어붙이기';
+    $('.tab-l', cmpBtn).textContent = compose.on ? '이어붙이기 끄기' : '이어붙이기';
+    $('.tab-i', cmpBtn).innerHTML = compose.on ? I.check : I.plus;
     document.body.classList.toggle('composing', compose.on);
     cmpText.textContent = compose.text || '';
     cmpText.classList.toggle('empty', !compose.text);
@@ -154,12 +170,18 @@
   $('.dock-box', dock).addEventListener('click', openSheet);
 
   // ── 메뉴 서랍 ──
-  var drawer = $('#drawer'), menuBtn = $('.menu-open');
+  var drawer = $('#drawer');
   function setDrawer(open) {
-    drawer.hidden = !open; menuBtn.setAttribute('aria-expanded', open);
+    drawer.hidden = !open;
+    document.querySelectorAll('.menu-toggle').forEach(function (b) { b.setAttribute('aria-expanded', open); });
     document.body.classList.toggle('noscroll', open);
+    if (open) {
+      var inner = $('.drawer-in', drawer), cur = $('[aria-current]', drawer);
+      inner.scrollTop = 0;
+      if (cur && cur.offsetTop + cur.offsetHeight > inner.clientHeight - 20) inner.scrollTop = cur.offsetTop - inner.clientHeight / 2;
+    }
   }
-  menuBtn.addEventListener('click', function () { setDrawer(drawer.hidden); });
+  document.querySelectorAll('.menu-toggle').forEach(function (b) { b.addEventListener('click', function () { setDrawer(drawer.hidden); }); });
   drawer.addEventListener('click', function (e) { if (e.target === drawer || e.target.closest('.menu-close')) setDrawer(false); });
 
   // ── 검색 ──
@@ -219,7 +241,7 @@
     input.focus();
   }
   function closeSearch() { srch.hidden = true; document.body.classList.remove('noscroll'); }
-  document.querySelectorAll('.search-open').forEach(function (b) { b.addEventListener('click', function () { openSearch(); }); });
+  document.querySelectorAll('.search-open').forEach(function (b) { b.addEventListener('click', function () { if (!drawer.hidden) setDrawer(false); openSearch(); }); });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { if (srch && !srch.hidden) closeSearch(); if (sheet && !sheet.hidden) closeSheet(); if (!drawer.hidden) setDrawer(false); }
     if (e.key === '/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); openSearch(); }
@@ -228,8 +250,76 @@
   if (qp) openSearch(qp);
 
   // 현재 페이지 칩을 보이게
-  var on = $('.chips .on');
-  if (on) on.parentNode.scrollLeft = on.offsetLeft - on.parentNode.offsetLeft - 16;
+  function centerIn(row, el, smooth) {
+    if (!row || !el) return;
+    var left = el.offsetLeft - row.offsetLeft - (row.clientWidth - el.offsetWidth) / 2;
+    if (smooth && row.scrollTo) row.scrollTo({ left: left, behavior: 'smooth' }); else row.scrollLeft = left;
+  }
+  centerIn($('.chips'), $('.chips .on'));
+
+  // 가로 스크롤 줄: 양끝 페이드 힌트
+  function edgeHint(row) {
+    function upd() {
+      row.classList.toggle('more-l', row.scrollLeft > 4);
+      row.classList.toggle('more-r', row.scrollLeft + row.clientWidth < row.scrollWidth - 4);
+    }
+    row.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+  document.querySelectorAll('.chips, .toc').forEach(edgeHint);
+
+  // 헤더 높이 측정 → CSS 변수 (고정 목차 위치)
+  var hd = $('.hd'), root = document.documentElement;
+  function measure() { root.style.setProperty('--hd-h', hd.offsetHeight + 'px'); }
+  measure();
+  window.addEventListener('resize', measure);
+
+  // 아래로 스크롤하면 헤더 숨김, 위로 올리면 다시 보임
+  var lastY = window.scrollY, ticking = false, totop = $('.totop', dock);
+  function onScroll() {
+    var y = window.scrollY, dy = y - lastY;
+    if (Math.abs(dy) > 6) {
+      document.body.classList.toggle('hd-hide', dy > 0 && y > hd.offsetHeight + 40);
+      lastY = y;
+    }
+    if (y < 10) document.body.classList.remove('hd-hide');
+    totop.hidden = y < 900;
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // 페이지 목차: 지금 보는 묶음 표시 + 정확한 위치로 이동
+  var toc = $('.toc');
+  if (toc) {
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+    var current = null;
+    function setActive(i) {
+      if (current === i) return;
+      current = i;
+      links.forEach(function (a, j) { a.classList.toggle('on', j === i); if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      centerIn(toc, links[i], true);
+    }
+    function spy() {
+      var line = $('.subnav').getBoundingClientRect().bottom + 24, idx = -1;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) idx = i; });
+      if (idx >= 0) setActive(idx); else { current = null; links.forEach(function (a) { a.classList.remove('on'); a.removeAttribute('aria-current'); }); }
+    }
+    window.addEventListener('scroll', function () { requestAnimationFrame(spy); }, { passive: true });
+    spy();
+    toc.addEventListener('click', function (e) {
+      var a = e.target.closest('a'); if (!a) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t) return;
+      e.preventDefault();
+      var goingDown = t.getBoundingClientRect().top > 0;
+      var offset = $('.subnav').offsetHeight + (goingDown ? 0 : hd.offsetHeight) + 10;
+      window.scrollTo({ top: window.scrollY + t.getBoundingClientRect().top - offset, behavior: 'smooth' });
+      history.replaceState(null, '', '#' + t.id);
+      setActive(links.indexOf(a));
+    });
+  }
 
   renderDock();
   renderCompose();

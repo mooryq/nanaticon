@@ -46,7 +46,7 @@ export const quickNav = ['home', 'font', 'heart', 'special', 'nickname', 'animal
 export const pages = {
   home: {
     type: 'list', data: 'face', path: '/', file: 'index.html',
-    nav: '표정 이모티콘', icon: '₍ᐢ..ᐢ₎',
+    nav: '표정 이모티콘', short: '표정', icon: '₍ᐢ..ᐢ₎',
     title: '특수문자 이모티콘 모음 (ෆ˙ᵕ˙ෆ) 귀여운 표정 이모티콘 복사 | 나나티콘',
     description: '귀여운 특수문자 이모티콘과 표정 이모티콘을 클릭 한 번으로 복사하세요. 웃는 얼굴, 부끄러운, 슬픈, 화난 표정부터 하트 특수문자, 인스타 폰트, 닉네임 특수문자까지 한 곳에.',
     h1: '귀여운 특수문자 이모티콘 모음',
@@ -61,7 +61,7 @@ export const pages = {
   },
   special: {
     type: 'hub', path: '/sub/special.html',
-    nav: '특수문자 모음', icon: '✧',
+    nav: '특수문자 모음', short: '특수문자', icon: '✧',
     title: '특수문자 모음 ✧ 하트·별·화살표·원문자 특수기호 복사 | 나나티콘',
     description: '자주 쓰는 특수문자를 한눈에. 하트, 별, 리본, 꽃, 화살표, 동그라미 숫자(원문자), 구분선, 괄호 특수기호를 카테고리별로 모아 클릭 한 번에 복사하세요.',
     h1: '특수문자 모음 · 특수기호 한눈에 보기',
@@ -75,7 +75,7 @@ export const pages = {
   },
   popular: {
     type: 'list', data: 'popular', path: '/sub/popular.html',
-    nav: '예쁜 특수기호', icon: '⋆𐙚',
+    nav: '예쁜 특수기호', short: '예쁜 기호', icon: '⋆𐙚',
     title: '예쁜 특수문자 모음 ⋆𐙚₊˚⊹♡ 감성 특수기호 복사 | 나나티콘',
     description: '인스타 감성 예쁜 특수기호 모음. 귀여운 꾸밈 기호, 감성 특수문자, SNS 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '예쁜 특수기호 · 감성 특수문자 모음',
@@ -86,7 +86,7 @@ export const pages = {
   },
   heart: {
     type: 'list', data: 'heart', path: '/sub/heart.html',
-    nav: '하트 특수문자', icon: '♡',
+    nav: '하트 특수문자', short: '하트', icon: '♡',
     title: '하트 특수문자 모음 ♡ ♥ ღ 하트 기호·하트 이모지 복사 | 나나티콘',
     description: '세상의 모든 하트 특수문자. 기본 하트 ♡♥, 하트 이모지 💗, 색깔별 하트, 하트 꾸미기 특수기호를 클릭 한 번에 복사하세요.',
     h1: '하트 특수문자 모음 ♡',
@@ -100,7 +100,7 @@ export const pages = {
   },
   star: {
     type: 'list', data: 'star', path: '/sub/star.html',
-    nav: '별 특수문자', icon: '☆',
+    nav: '별 특수문자', short: '별', icon: '☆',
     title: '별 특수문자 모음 ★ ☆ ✦ ⋆ 별 기호·반짝이 복사 | 나나티콘',
     description: '별 특수문자와 반짝이 기호 모음. ★ ☆ ✦ ✧ ⋆ ✩ 별 기호와 별 이모지, 반짝이 꾸미기 특수문자를 클릭 한 번에 복사하세요.',
     h1: '별 특수문자 · 반짝이 기호 모음 ⋆',
@@ -111,7 +111,7 @@ export const pages = {
   },
   ribbon: {
     type: 'list', data: 'ribbon', path: '/sub/ribbon.html',
-    nav: '리본 특수문자', icon: '🎀',
+    nav: '리본 특수문자', short: '리본', icon: '🎀',
     title: '리본 특수문자 모음 🎀 ୨ৎ 리본 기호 복사 | 나나티콘',
     description: '리본 특수문자 모음. ୨ৎ ୨୧ 🎀 리본 기호와 발레코어 감성 리본 꾸미기 특수문자를 클릭 한 번에 복사하세요.',
     h1: '리본 특수문자 모음 ୨ৎ',
@@ -122,7 +122,7 @@ export const pages = {
   },
   flower: {
     type: 'list', data: 'flower', path: '/sub/flower.html',
-    nav: '꽃 특수문자', icon: '✿',
+    nav: '꽃 특수문자', short: '꽃', icon: '✿',
     title: '꽃 특수문자 모음 ✿ ❀ ❁ 꽃 기호·꽃 이모지 복사 | 나나티콘',
     description: '꽃 특수문자 모음. ✿ ❀ ❁ ✾ ❃ 꽃 기호와 🌸🌷 꽃 이모지, 꽃 꾸미기 특수문자를 클릭 한 번에 복사하세요.',
     h1: '꽃 특수문자 모음 ✿',
@@ -133,7 +133,7 @@ export const pages = {
   },
   arrow: {
     type: 'list', data: 'arrow', path: '/sub/arrow.html',
-    nav: '화살표 특수문자', icon: '→',
+    nav: '화살표 특수문자', short: '화살표', icon: '→',
     title: '화살표 특수문자 모음 → ⇒ ➜ ↳ 화살표 기호 복사 | 나나티콘',
     description: '화살표 특수문자 모음. → ← ↑ ↓ ⇒ ➜ ➤ ↳ ↺ 기본·꺾인·굵은·귀여운 화살표 기호를 클릭 한 번에 복사하세요.',
     h1: '화살표 특수문자 모음 →',
@@ -144,7 +144,7 @@ export const pages = {
   },
   number: {
     type: 'list', data: 'number', path: '/sub/number.html',
-    nav: '원문자 · 숫자', icon: '①',
+    nav: '원문자 · 숫자', short: '숫자·원문자', icon: '①',
     title: '동그라미 숫자 특수문자 ① ❶ ⑴ 원문자·체크 ✓ 기호 복사 | 나나티콘',
     description: '동그라미 숫자(원문자) ①~㊿, 검은 원숫자 ❶, 괄호 숫자 ⑴, 원문자 한글 ㉠ ㉮, 로마 숫자 Ⅰ, 위첨자 ¹²³, 체크 표시 ✓ ✔ ☑ 특수문자를 클릭 한 번에 복사하세요.',
     h1: '동그라미 숫자 · 원문자 · 체크 특수문자',
@@ -158,7 +158,7 @@ export const pages = {
   },
   divider: {
     type: 'list', data: 'divider', path: '/sub/divider.html',
-    nav: '구분선 · 괄호', icon: '┈',
+    nav: '구분선 · 괄호', short: '구분선', icon: '┈',
     title: '구분선 특수문자 ─── 귀여운 구분선·괄호 『』 테두리 복사 | 나나티콘',
     description: '구분선 특수문자 모음. 심플한 ─── 라인부터 귀여운 감성 구분선, 『』【】꒰꒱ 괄호, 테두리, 글머리표 기호를 클릭 한 번에 복사하세요.',
     h1: '구분선 · 괄호 · 테두리 특수문자',
@@ -169,7 +169,7 @@ export const pages = {
   },
   animal: {
     type: 'list', data: 'animal', path: '/sub/animal.html',
-    nav: '동물 이모티콘', icon: 'ʕ•ᴥ•ʔ',
+    nav: '동물 이모티콘', short: '동물', icon: 'ʕ•ᴥ•ʔ',
     title: '동물 이모티콘 모음 ʕ•ᴥ•ʔ 고양이·곰돌이·강아지 특수문자 복사 | 나나티콘',
     description: '귀여운 동물 특수문자 이모티콘 모음. 고양이 ฅ^•ﻌ•^ฅ, 곰돌이 ʕ•ᴥ•ʔ, 강아지 ૮ ・ﻌ・ა, 토끼 (ᐢ. ̫.ᐢ), 병아리 이모티콘을 클릭 한 번에 복사하세요.',
     h1: '동물 이모티콘 모음 ʕ•ᴥ•ʔ',
@@ -180,7 +180,7 @@ export const pages = {
   },
   pink: {
     type: 'list', data: 'pink', path: '/sub/pink.html',
-    nav: '핑크 무드', icon: '🩰',
+    nav: '핑크 무드', short: '핑크', icon: '🩰',
     title: '핑크 특수문자 · 핑크 이모지 모음 🩰 핑크 감성 복사 | 나나티콘',
     description: '핑크 감성 특수문자와 핑크 이모지 모음. 🩰🎀🌸💗 핑크 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '핑크 무드 특수문자 · 이모지 🩰',
@@ -191,7 +191,7 @@ export const pages = {
   },
   purple: {
     type: 'list', data: 'purple', path: '/sub/purple.html',
-    nav: '보라 무드', icon: '🦄',
+    nav: '보라 무드', short: '보라', icon: '🦄',
     title: '보라색 특수문자 · 보라 이모지 모음 🦄💜 복사 | 나나티콘',
     description: '보라색 감성 특수문자와 보라 이모지 모음. 💜🦄🔮🍇 보라 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '보라 무드 특수문자 · 이모지 💜',
@@ -202,7 +202,7 @@ export const pages = {
   },
   spring: {
     type: 'list', data: 'spring', path: '/sub/spring.html',
-    nav: '봄 감성', icon: '🌸',
+    nav: '봄 감성', short: '봄', icon: '🌸',
     title: '봄 특수문자 · 봄 이모지 모음 🌸 벚꽃 감성 복사 | 나나티콘',
     description: '봄 감성 특수문자와 봄 이모지 모음. 🌸🌷🦋🌱 벚꽃, 꽃놀이, 피크닉 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '봄 감성 특수문자 · 이모지 🌸',
@@ -213,7 +213,7 @@ export const pages = {
   },
   summer: {
     type: 'list', data: 'summer', path: '/sub/summer.html',
-    nav: '여름 바다', icon: '🌊',
+    nav: '여름 바다', short: '여름', icon: '🌊',
     title: '여름 특수문자 · 바다 이모지 모음 🌊 여름 감성 복사 | 나나티콘',
     description: '여름 바다 감성 특수문자와 이모지 모음. 🌊🐚🏝️🍉 바다, 휴가, 여행 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '여름 바다 특수문자 · 이모지 🌊',
@@ -224,7 +224,7 @@ export const pages = {
   },
   rain: {
     type: 'list', data: 'rain', path: '/sub/rain.html',
-    nav: '비 오는 날', icon: '☔',
+    nav: '비 오는 날', short: '비', icon: '☔',
     title: '비 특수문자 · 비 이모지 모음 ☔ 비 오는 날 감성 복사 | 나나티콘',
     description: '비 오는 날 감성 특수문자와 비 이모지 모음. ☔🌧️☂️💧 장마, 빗소리 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '비 오는 날 감성 특수문자 ☔',
@@ -235,7 +235,7 @@ export const pages = {
   },
   space: {
     type: 'list', data: 'space', path: '/sub/space.html',
-    nav: '우주 · 갤럭시', icon: '🌌',
+    nav: '우주 · 갤럭시', short: '우주', icon: '🌌',
     title: '우주 특수문자 · 갤럭시 이모지 모음 🌌 달·행성 기호 복사 | 나나티콘',
     description: '우주 감성 특수문자와 갤럭시 이모지 모음. 🌌🪐🌙☾ 달, 행성, 별자리 무드 꾸미기 기호를 클릭 한 번에 복사하세요.',
     h1: '우주 · 갤럭시 특수문자 🪐',
@@ -246,7 +246,7 @@ export const pages = {
   },
   font: {
     type: 'font', path: '/sub/font.html',
-    nav: '인스타 폰트', icon: '𝓐',
+    nav: '인스타 폰트', short: '인스타 폰트', icon: '𝓐',
     title: '인스타 폰트 변환기 𝓐𝓫𝓬 인스타 글씨체·특수문자 폰트 복사 | 나나티콘',
     description: '인스타 폰트 변환기. 영어·숫자를 𝓢𝓬𝓻𝓲𝓹𝓽, 𝐁𝐨𝐥𝐝, 𝕕𝕠𝕦𝕓𝕝𝕖, ⓒⓘⓡⓒⓛⓔ 등 36가지 인스타 글씨체로 바꾸고 한글은 밑줄·취소선·하트 꾸미기로 변환해 바로 복사하세요.',
     h1: '인스타 폰트 변환기 · 글씨체 꾸미기',
@@ -261,7 +261,7 @@ export const pages = {
   },
   nickname: {
     type: 'list', data: 'nickname', path: '/sub/nickname.html',
-    nav: '닉네임 특수문자', icon: 'ミ★',
+    nav: '닉네임 특수문자', short: '닉네임', icon: 'ミ★',
     title: '닉네임 특수문자 ꧁꧂ 투명 닉네임·공백 특수문자 복사 | 나나티콘',
     description: '닉네임 특수문자 모음. 카톡·인스타·게임 투명 닉네임용 공백 특수문자(ㅤ), ꧁ ꧂ 닉네임 꾸미기 기호, 닉네임 템플릿을 클릭 한 번에 복사하세요.',
     h1: '닉네임 특수문자 · 공백 특수문자',
@@ -276,7 +276,7 @@ export const pages = {
   },
   bio: {
     type: 'list', data: 'bio', path: '/sub/bio.html',
-    nav: '인스타 프로필 꾸미기', icon: 'ʚ♡ɞ',
+    nav: '인스타 프로필 꾸미기', short: '프로필', icon: 'ʚ♡ɞ',
     title: '인스타 프로필 꾸미기 ʚ♡ɞ 인스타 소개글 템플릿·하이라이트 특수문자 | 나나티콘',
     description: '인스타 프로필 꾸미기 템플릿. 감성 인스타 소개글(bio) 템플릿, 프로필 아이콘, 하이라이트 이름, 인스타 줄바꿈 공백문자를 클릭 한 번에 복사하세요.',
     h1: '인스타 프로필 꾸미기 · 소개글 템플릿',

@@ -65,17 +65,18 @@ function adSlot(pos) {
 }
 
 function header(key) {
-  const chips = quickNav.map((k) => `<a href="${pages[k].path}"${k === key ? ' class="on" aria-current="page"' : ''}>${esc(pages[k].nav)} <span aria-hidden="true">${esc(pages[k].icon)}</span></a>`).join('');
-  const drawer = navGroups.map((g) => `<div class="dg"><p class="dg-t">${esc(g.title)}</p>${g.items.map((k) => `<a href="${pages[k].path}"${k === key ? ' aria-current="page"' : ''}><span class="dg-i" aria-hidden="true">${esc(pages[k].icon)}</span>${esc(pages[k].nav)}</a>`).join('')}</div>`).join('');
+  const chips = quickNav.map((k) => `<a href="${pages[k].path}"${k === key ? ' class="on" aria-current="page"' : ''}><span class="ci" aria-hidden="true">${esc(pages[k].icon)}</span>${esc(pages[k].short || pages[k].nav)}</a>`).join('')
+    + `<button type="button" class="chip-all menu-toggle" aria-controls="drawer">전체 메뉴 ›</button>`;
+  const drawer = navGroups.map((g) => `<div class="dg"><p class="dg-t">${esc(g.title)}</p>${g.items.map((k) => `<a href="${pages[k].path}"${k === key ? ' aria-current="page"' : ''}><span class="dg-i" aria-hidden="true">${esc(pages[k].icon)}</span><span class="dg-n">${esc(pages[k].nav)}</span>${countOf(k) ? `<span class="dg-c">${countOf(k)}</span>` : ''}</a>`).join('')}</div>`).join('');
   return `<header class="hd">
   <div class="hd-top">
     <a class="logo" href="/" aria-label="${site.name} 홈">${esc(site.logo)}</a>
-    <button class="search-open" type="button" aria-label="이모티콘 검색"><span aria-hidden="true">⌕</span> 하트, 고양이, 리본 검색</button>
-    <button class="menu-open" type="button" aria-expanded="false" aria-controls="drawer"><span aria-hidden="true">☰</span><span class="sr">전체 메뉴</span></button>
+    <button class="search-open" type="button" aria-label="이모티콘 검색"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg> 하트, 고양이, 리본 검색</button>
+    <button class="menu-open menu-toggle" type="button" aria-expanded="false" aria-controls="drawer"><span aria-hidden="true">☰</span> 메뉴</button>
   </div>
   <nav class="chips" aria-label="바로가기">${chips}</nav>
 </header>
-<nav id="drawer" class="drawer" aria-label="전체 메뉴" hidden><div class="drawer-in"><div class="drawer-hd"><b>전체 메뉴</b><button class="menu-close" type="button" aria-label="닫기">✕</button></div>${drawer}</div></nav>`;
+<nav id="drawer" class="drawer" aria-label="전체 메뉴" hidden><div class="drawer-in"><div class="drawer-hd"><b>전체 메뉴</b><button class="menu-close" type="button" aria-label="닫기">✕</button></div><button type="button" class="search-open drawer-search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg> 이모티콘 검색</button>${drawer}</div></nav>`;
 }
 
 function footer() {
@@ -114,9 +115,13 @@ function breadcrumb(key) {
   return `<nav class="bc" aria-label="현재 위치"><a href="/">홈</a> <span aria-hidden="true">›</span> <span>${esc(pages[key].nav)}</span></nav>`;
 }
 
+const shortTitle = (t) => t.replace(/\s*\(.*?\)\s*$/, '').replace(/\s*(이모티콘|특수문자|특수기호|이모지)$/, '').replace(/\s*·\s*/g, '·') || t;
+function tocBar(links) {
+  return `<div class="subnav"><nav class="toc" aria-label="이 페이지 목차">${links.map(([id, label]) => `<a href="#${id}">${esc(label)}</a>`).join('')}</nav></div>`;
+}
 function groupNav(groups) {
   if (groups.length < 3) return '';
-  return `<nav class="toc" aria-label="이 페이지 목차">${groups.map((g) => `<a href="#${g.id}">${esc(g.title.replace(/\s*\(.*?\)\s*$/, ''))}</a>`).join('')}</nav>`;
+  return tocBar(groups.map((g) => [g.id, shortTitle(g.title)]));
 }
 
 function sections(groups) {
@@ -146,7 +151,7 @@ function homeBody() {
   const tools = ['font', 'nickname', 'bio'].map((k) => `<a class="tool" href="${pages[k].path}"><span class="tool-i" aria-hidden="true">${esc(pages[k].icon)}</span><span><b>${esc(pages[k].nav)}</b><small>${esc(pages[k].lead)}</small></span></a>`).join('');
   const cats = navGroups.flatMap((g) => g.items).filter((k) => !['home', 'font', 'nickname', 'bio'].includes(k));
   return `<div class="intro hero"><h1>${esc(p.h1)}</h1><p class="lead">${esc(p.lead)}</p>
-<button class="search-open big" type="button"><span aria-hidden="true">⌕</span> 어떤 특수문자를 찾으세요? (예: 하트, 곰돌이, 리본)</button></div>
+<button class="search-open big" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg> 어떤 특수문자를 찾으세요? (예: 하트, 곰돌이, 리본)</button></div>
 <section class="tools" aria-label="꾸미기 도구">${tools}</section>
 ${adSlot('top')}
 <section class="cats" aria-labelledby="cats-h"><h2 id="cats-h">카테고리</h2><div class="cards">${cats.map(card).join('')}</div></section>
@@ -167,7 +172,7 @@ function hubBody(key) {
   return `${breadcrumb(key)}
 <div class="intro"><h1>${esc(p.h1)}</h1><p class="lead">${esc(p.lead)}</p></div>
 ${adSlot('top')}
-<nav class="toc" aria-label="이 페이지 목차">${cats.map((k) => `<a href="#${k}">${esc(pages[k].nav)}</a>`).join('')}</nav>
+${tocBar(cats.map((k) => [k, pages[k].short || pages[k].nav]))}
 ${blocks}
 ${adSlot('bottom')}
 ${about(key)}
