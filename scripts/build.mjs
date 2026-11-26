@@ -379,6 +379,9 @@ Sitemap: ${site.origin}/sitemap.xml
 `);
 write('manifest.json', JSON.stringify({ name: `${site.name} 특수문자 이모티콘`, short_name: site.name, start_url: '/', display: 'standalone', background_color: '#fff8fb', theme_color: '#f6d3e4', lang: 'ko', icons: [{ src: '/img/appicon.png', sizes: '384x384', type: 'image/png' }] }, null, 2));
 
+// IndexNow 인증 파일
+if (site.indexNowKey) write(`${site.indexNowKey}.txt`, site.indexNowKey);
+
 // Vercel: 깔끔한 주소(.html 제거), 예전 주소 영구 리다이렉트, 캐시
 write('vercel.json', JSON.stringify({
   cleanUrls: true,

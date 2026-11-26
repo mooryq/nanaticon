@@ -43,3 +43,9 @@ node scripts/build.mjs
 
 ## 쿠팡 파트너스
 `data/site.mjs` 의 `coupang.enabled` 를 `true` 로 바꾸고 배너 코드를 `top` / `middle` / `bottom` 에 넣은 뒤 빌드하세요. 대가성 고지 문구는 자동으로 들어가요.
+
+## 검색엔진 수집 요청 (IndexNow — 네이버·Bing)
+배포가 끝난 뒤 실행하면 sitemap 의 모든 주소를 네이버와 Bing 에 바로 알려줘요.
+```bash
+node scripts/indexnow.mjs
+```

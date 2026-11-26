@@ -9,6 +9,8 @@ export const site = {
   nameEn: 'nanaticon',
   logo: 'nanaticon•⩊•',
   gaId: 'G-DVK1F7F56E',
+  // IndexNow (네이버·Bing 수집 요청) 인증 키 — 바꾸지 마세요
+  indexNowKey: 'a4c8f1f5aded2e586a2984e8492ec86a',
   ogImage: '/img/og-image.png',
   verification: {
     google: 'DwMCQiHj6kenEtl2wLrub4ZTJbJy8EJ5qmmFJviFA4k',
