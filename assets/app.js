@@ -189,7 +189,7 @@
   function norm(s) { return String(s).toLowerCase().replace(/\s+/g, ''); }
   function loadIndex() {
     if (data || loading) return loading;
-    loading = fetch('/assets/search.json').then(function (r) { return r.json(); }).then(function (d) {
+    loading = fetch('/assets/search.json?v=' + (document.body.dataset.v || '')).then(function (r) { return r.json(); }).then(function (d) {
       data = d;
       d.items.forEach(function (it) { var p = d.pages[it[1]]; it.h = norm(it[0] + ' ' + it[2] + ' ' + (it[3] || '') + ' ' + p[1] + ' ' + p[3]); it.self = norm(it[0]); });
       d.pages.forEach(function (p) { p.h = norm(p[1] + ' ' + p[3]); });

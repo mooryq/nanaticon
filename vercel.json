@@ -1,0 +1,153 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sub/special.html",
+      "destination": "/symbol",
+      "permanent": true
+    },
+    {
+      "source": "/sub/popular.html",
+      "destination": "/symbol/pretty",
+      "permanent": true
+    },
+    {
+      "source": "/sub/heart.html",
+      "destination": "/symbol/heart",
+      "permanent": true
+    },
+    {
+      "source": "/sub/star.html",
+      "destination": "/symbol/star",
+      "permanent": true
+    },
+    {
+      "source": "/sub/ribbon.html",
+      "destination": "/symbol/ribbon",
+      "permanent": true
+    },
+    {
+      "source": "/sub/flower.html",
+      "destination": "/symbol/flower",
+      "permanent": true
+    },
+    {
+      "source": "/sub/arrow.html",
+      "destination": "/symbol/arrow",
+      "permanent": true
+    },
+    {
+      "source": "/sub/number.html",
+      "destination": "/symbol/number",
+      "permanent": true
+    },
+    {
+      "source": "/sub/divider.html",
+      "destination": "/symbol/divider",
+      "permanent": true
+    },
+    {
+      "source": "/sub/pink.html",
+      "destination": "/mood/pink",
+      "permanent": true
+    },
+    {
+      "source": "/sub/purple.html",
+      "destination": "/mood/purple",
+      "permanent": true
+    },
+    {
+      "source": "/sub/spring.html",
+      "destination": "/mood/spring",
+      "permanent": true
+    },
+    {
+      "source": "/sub/summer.html",
+      "destination": "/mood/summer",
+      "permanent": true
+    },
+    {
+      "source": "/sub/rain.html",
+      "destination": "/mood/rain",
+      "permanent": true
+    },
+    {
+      "source": "/sub/space.html",
+      "destination": "/mood/space",
+      "permanent": true
+    },
+    {
+      "source": "/sub/animal.html",
+      "destination": "/emoticon",
+      "permanent": true
+    },
+    {
+      "source": "/sub/font.html",
+      "destination": "/tools/font",
+      "permanent": true
+    },
+    {
+      "source": "/sub/nickname.html",
+      "destination": "/tools/nickname",
+      "permanent": true
+    },
+    {
+      "source": "/sub/bio.html",
+      "destination": "/tools/bio",
+      "permanent": true
+    },
+    {
+      "source": "/no_use/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/search.json",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

@@ -53,16 +53,21 @@ button { font: inherit; color: inherit; }
 .search-open svg { flex: none; opacity: .7; }
 .menu-open { height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; font-size: .9rem; font-weight: 600; flex: none; white-space: nowrap; }
 body.hd-hide .hd { transform: translateY(-100%); }
-.chips { display: flex; gap: 6px; overflow-x: auto; max-width: 1080px; margin: 0 auto; padding: 2px 16px 10px; scrollbar-width: none; scroll-padding: 0 16px; }
+.ptabs { display: flex; max-width: 1080px; margin: 0 auto; padding: 0 8px; }
+.ptabs a { flex: 1; text-align: center; text-decoration: none; padding: 9px 4px 10px; font-size: .92rem; font-weight: 600; color: var(--text-2); border-bottom: 3px solid transparent; white-space: nowrap; }
+.ptabs a:hover { color: var(--text); }
+.ptabs a.on { color: var(--text); border-bottom-color: var(--brand-ink); }
+@media (min-width: 768px) { .ptabs { justify-content: flex-start; gap: 8px; } .ptabs a { flex: none; padding: 9px 14px 10px; } }
+.chips { display: flex; gap: 6px; overflow-x: auto; margin: 10px -16px 0; padding: 4px 16px 6px; scrollbar-width: none; scroll-padding: 0 16px; }
+.chips-home { flex-wrap: wrap; justify-content: center; overflow: visible; margin-top: 16px; }
 .chips.more-r, .toc.more-r { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
 .chips.more-l, .toc.more-l { -webkit-mask-image: linear-gradient(to left, #000 85%, transparent); mask-image: linear-gradient(to left, #000 85%, transparent); }
 .chips.more-l.more-r, .toc.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 85%, transparent); mask-image: linear-gradient(to right, transparent, #000 10%, #000 85%, transparent); }
 .chips::-webkit-scrollbar { display: none; }
-.chips a, .chip-all { flex: none; display: inline-flex; align-items: center; gap: 5px; text-decoration: none; font-size: .86rem; padding: 6px 12px; min-height: 34px; cursor: pointer; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); white-space: nowrap; transition: transform .12s, box-shadow .12s; }
+.chips a { flex: none; display: inline-flex; align-items: center; gap: 5px; text-decoration: none; font-size: .86rem; padding: 6px 12px; min-height: 34px; cursor: pointer; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); white-space: nowrap; transition: transform .12s, box-shadow .12s; }
 .chips a:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
 .ci { color: var(--brand-ink); font-size: .82rem; }
 .chips a.on .ci { color: inherit; }
-.chip-all { background: transparent; border: 1px dashed var(--line-strong); border-radius: 999px; color: var(--text-2); font-weight: 600; }
 .chips a.on { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 600; }
 
 /* 서랍 메뉴 */
@@ -74,6 +79,9 @@ body.hd-hide .hd { transform: translateY(-100%); }
 .drawer-hd { position: sticky; top: 0; z-index: 1; background: var(--surface); padding: 14px 0 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 1.05rem; }
 .menu-close { border: 0; background: var(--surface-2); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; }
 .dg { padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.dg-home { display: block; padding: 10px 8px; text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--line); }
+.dg a.dg-t { display: flex; justify-content: space-between; padding: 4px 8px; margin: 0 0 4px; }
+.dg-t span { font-weight: 500; }
 .dg-t { margin: 0 0 6px; font-size: .78rem; color: var(--text-2); font-weight: 700; letter-spacing: .04em; }
 .dg a { display: flex; align-items: center; gap: 10px; padding: 9px 8px; border-radius: 10px; text-decoration: none; }
 .dg a:hover, .dg a[aria-current] { background: var(--surface-2); }
@@ -258,3 +266,19 @@ body.composing .totop { display: none; }
   .tab.dock-cmp[aria-pressed="true"]:hover { background: var(--brand-ink); color: #fff; }
   .chips a:hover, .card:hover, .tool:hover { transform: none; box-shadow: none; }
 }
+
+/* 구조 개편 추가 요소 */
+.total { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--brand-ink); background: var(--surface-2); padding: 1px 8px; border-radius: 999px; vertical-align: 1px; }
+.grp-d { margin: -6px 0 12px; font-size: .85rem; color: var(--text-2); }
+.cats { margin: 14px 0 4px; }
+.home-sec h2 { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; margin: 30px 2px 10px; }
+.home-sec h2 a { text-decoration: none; }
+.home-sec .h-more { margin-left: auto; font-size: .82rem; font-weight: 600; color: var(--brand-ink); }
+.pn { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 22px 0 0; }
+.pn a { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; font-weight: 600; font-size: .92rem; }
+.pn a:hover { border-color: var(--line-strong); }
+.pn small { font-weight: 500; color: var(--text-2); font-size: .75rem; }
+.pn-next { text-align: right; grid-column: 2; }
+.upd { font-size: .75rem; margin-top: 14px; }
+.ft-t { display: block; text-decoration: none; }
+.ft-copy a { text-decoration: none; }

@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /no_use/
-Disallow: /data/
-Disallow: /scripts/
+Disallow: /assets/search.json
 
 Sitemap: https://nanaticon.vercel.app/sitemap.xml

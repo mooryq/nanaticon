@@ -1,4 +1,4 @@
-import { styles } from './fonts.js';
+const { styles } = await import('./fonts.js' + new URL(import.meta.url).search);
 
 const input = document.getElementById('font-in');
 const list = document.getElementById('font-list');
