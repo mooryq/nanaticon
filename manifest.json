@@ -1,0 +1,16 @@
+{
+  "name": "나나티콘 특수문자 이모티콘",
+  "short_name": "나나티콘",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#f6d3e4",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/img/appicon.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+  ]
+}
